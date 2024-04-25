@@ -114,7 +114,7 @@ function endreETkunde(id) {
     window.location.href = "/endre.html?"+id;
 }
 function slettEtkunde(id){
-    const url = "/slettBilettet?id="+id;
+    const url = "/sletkunden?id="+id;
     $.get( url, function() {
         listBilletter();
     });

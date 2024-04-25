@@ -26,24 +26,19 @@ public class KundeRepository {
         String sql="delete from Kunde";
         db.update(sql);
     }
-    public Kunde hent(int id) {
-        String sql="select * from Kunde where id=?";
-        List<Kunde> etKunde=db.query(sql, new BeanPropertyRowMapper<>(Kunde.class),id );
-        return etKunde.get(id-1);
-
+    public void sletkunden(Long id) {
+        String ticketSQL = "DELETE from Kunde WHERE id = " + id;
+        db.update(ticketSQL);
     }
-    public void endreKunde(Kunde kunde) {
-        String sql="Update Kunde set film=?, antall=?, fornavn=?, etternavn=?," +
-                "telefonnr=?, epost=? where id=?";
-        db.update(sql,kunde.getFilm(),kunde.getAntall(),kunde.getFornavn(),kunde.getEtternavn(),
-                kunde.getTelefonnr(), kunde.getEpost(),kunde.getId());
-
-
-
+    public void updateKunden(Kunde kunde) {
+        String ticketSQL = "INSERT INTO Kunde (film,antall,fornavn,etternavn,telefonnr,epost) VALUES(?,?,?,?,?,?) where id=?";
+        db.update(ticketSQL, kunde.getFilm(), kunde.getAntall(), kunde.getFornavn(), kunde.getEtternavn(), kunde.getTelefonnr(), kunde.getEpost(),kunde.getId() );
+    }
+    public Kunde hentKunden(int id){
+        String sql="select * from Bilets where id=?";
+        List<Kunde> kunden=db.query(sql, new BeanPropertyRowMapper<>(Kunde.class),id );
+        return kunden.get(id-1);
     }
 
-    public void slettEtKunde(int id) {
-        String sql = "DELETE FROM Kunde WHERE id=?";
-        db.update(sql,id);
-    }
+
 }

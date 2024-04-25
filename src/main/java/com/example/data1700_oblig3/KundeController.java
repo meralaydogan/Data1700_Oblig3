@@ -18,10 +18,10 @@ public class KundeController {
     public List<Kunde> hentBiletter(){return rep.hentAlleKunde();}
     @GetMapping("/sletAlleKunder")
     public void sletAlleKunder(){ rep.slett();}
-    @GetMapping("/hentetKunde")
-    public Kunde hentetKunde(int id)  {return rep.hent(id);}
-    @PostMapping("/endreEtKunde")
-    public void endreEtKunde(Kunde kunde){rep.endreKunde(kunde);}
-    @GetMapping("/slettEtKunde")
-    public void slettEtKunde(int id) {rep.slettEtKunde(id);}
+    @GetMapping("/sletkunden")
+    public void slettKunden(long id) {rep.sletkunden(id);}
+    @GetMapping("/hentKunden")
+    public Kunde hentKunden(int id){return rep.hentKunden(id);}
+    @GetMapping("/updateKunden")
+    public void updateKunden(Kunde kunde){rep.updateKunden(kunde);}
 }
