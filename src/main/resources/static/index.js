@@ -97,7 +97,7 @@ function listBilletter() {
                 "<td>"+kunde.telefonnr+"</td>"+
                 "<td>"+kunde.epost+"</td>"+
                 "<td> <button  onclick='endreETkunde("+kunde.id+")'>Endre</button></td>"+
-                "<td> <button  onclick='slettEtkunde("+kunde.id+")'>Slett</button></td></tr>";;
+                "<td> <button  onclick='slettEtkunde("+kunde.id+")'>Slett</button></td></tr>";
         });
         $("#alleBilletter").html(innerHTML)
     })
