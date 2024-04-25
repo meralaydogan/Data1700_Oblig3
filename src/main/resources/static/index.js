@@ -89,31 +89,33 @@ function resetForm() {
 function listBilletter() {
     let innerHTML = '';
     $.get("/hentKunder", function (alleKunderDiv) {
-        alleKunderDiv.forEach(function(billett) {
-            innerHTML += "<th>"+billett.film+"</th>"+
-                "<th>"+billett.antall+"</th>"+
-                "<th>"+billett.fornavn+"</th>"+
-                "<th>"+billett.etternavn+"</th>"+
-                "<th>"+billett.telefonnr+"</th>"+
-                "<th>"+billett.epost+"</th>"+
-                "<td> <button  onclick='endreETkunde("+billett.id+")'>Endre</button></td>"+
-                "<td> <button  onclick='slettEtkunde("+billett.id+")'>Slett</button></td></tr>";;
+        alleKunderDiv.forEach(function(kunde) {
+            innerHTML += "<tr><td>"+kunde.film+"</td>"+
+                "<td>"+kunde.antall+"</td>"+
+                "<td>"+kunde.fornavn+"</td>"+
+                "<td>"+kunde.etternavn+"</td>"+
+                "<td>"+kunde.telefonnr+"</td>"+
+                "<td>"+kunde.epost+"</td>"+
+                "<td> <button  onclick='endreETkunde("+kunde.id+")'>Endre</button></td>"+
+                "<td> <button  onclick='slettEtkunde("+kunde.id+")'>Slett</button></td></tr>";;
         });
         $("#alleBilletter").html(innerHTML)
     })
 
 
 }
-
-function slettAlleBilletter() {
+function slettAlleKunder() {
     $.get("/sletAlleKunder",function () {
         listBilletter();
     })
 
 }
 function endreETkunde(id) {
-
+    window.location.href = "/endre.html?"+id;
 }
-function slettEtkunde(id) {
-
+function slettEtkunde(id){
+    const url = "/slettBilettet?id="+id;
+    $.get( url, function() {
+        listBilletter();
+    });
 }

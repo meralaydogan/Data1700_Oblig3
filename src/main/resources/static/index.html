@@ -57,6 +57,7 @@
     <h3>Alle billetter</h3>
     <div >
         <table>
+            <thead>
             <tr>
                 <th>Film</th>
                 <th>Antall</th>
@@ -65,12 +66,13 @@
                 <th>Telefonnr</th>
                 <th>Email</th>
             </tr>
-            <tr id="alleBilletter"></tr>
+            </thead>
+            <tbody id="alleBilletter"></tbody>
         </table>
     </div>
     <input
             type="button"
-            onclick="slettAlleBilletter()"
+            onclick="slettAlleKunder()"
             id="slettBillet"
             value="Slett alle billettene"
     /><br />

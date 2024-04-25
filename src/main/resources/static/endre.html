@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Endring av kinobilletter</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 <body>
 <form id="billettForm" style="border:2px solid darkslateblue; padding: 20px; margin: 20px; width: 400px;">
@@ -50,32 +51,12 @@
     <input
             type="button"
             id="kjopBillet"
-            onclick="addBillett()"
+            onclick="endreBillett()"
             value="Kjøp billett"
-    /><br />
-    <br />
-    <h3>Alle billetter</h3>
-    <div >
-        <table>
-            <tr>
-                <th>Film</th>
-                <th>Antall</th>
-                <th>Fornavn</th>
-                <th>Etternavn</th>
-                <th>Telefonnr</th>
-                <th>Email</th>
-            </tr>
-            <tr id="alleBilletter"></tr>
-        </table>
-    </div>
-    <input
-            type="button"
-            onclick="slettAlleBilletter()"
-            id="slettBillet"
-            value="Slett alle billettene"
-    /><br />
+    />
 </form>
-</body>
+
 <script src="index.js"></script>
+<script src="endre.js"></script>
 </body>
 </html>

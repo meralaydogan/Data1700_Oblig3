@@ -23,7 +23,7 @@ public class KundeRepository {
         return allekunder;
     }
     public void slett(){
-        String sql="delete from Bilets";
+        String sql="delete from Kunde";
         db.update(sql);
     }
     public Kunde hent(int id) {
